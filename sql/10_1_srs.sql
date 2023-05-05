@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 03, 2023 at 09:06 AM
+-- Generation Time: May 05, 2023 at 08:20 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -85,6 +85,27 @@ INSERT INTO `students` (`id`, `name`, `email`, `created_at`) VALUES
 (3, 'Ali', 'ali@gmail.com', '2023-05-02 06:01:26'),
 (5, 'Rizwan', 'rizwan@gmail.com', '2023-05-03 06:02:54');
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users`
+--
+
+CREATE TABLE `users` (
+  `id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `name`, `email`, `password`, `created_at`) VALUES
+(1, 'Rizwan', 'rizwan@gmail.com', '827ccb0eea8a706c4c34a16891f84e7b', '2023-05-05 06:16:35');
+
 --
 -- Indexes for dumped tables
 --
@@ -111,6 +132,12 @@ ALTER TABLE `students`
   ADD UNIQUE KEY `email` (`email`);
 
 --
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -131,6 +158,12 @@ ALTER TABLE `registrations`
 --
 ALTER TABLE `students`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Constraints for dumped tables
